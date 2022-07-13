@@ -170,6 +170,8 @@ Available for `RANS`, `INC_RANS`.
 
 The Shear Stress Transport (SST) model of Menter and the Spalart-Allmaras (S-A) model are two of the most common and widely used turbulence models. The S-A and SST standard models, along with several variants, are implemented in SU2. The reader is referred to the [NASA Turbulence Modeling Resource](https://turbmodels.larc.nasa.gov/index.html) (TMR) for the details of each specific model, as the versions in SU2 are implemented according to the well-described formulations found there.
 
+For turbulent flows near walls, a sufficiently fine mesh needs to be used to resolve the turbulence equations in the boundary layer. When a coarse mesh is used close to the wall, such that the entire viscosity affected boundary layer falls within a single cell, a wall function can be used instead to reduce computational time. The wall function approach of Nichols and Nelson has been implemented in SU2.  
+
 Within the turbulence solvers, we discretize the equations in space using a finite volume method (FVM) with a standard edge-based data structure on a dual grid with vertex-based schemes. The convective and viscous fluxes are evaluated at the midpoint of an edge.
 
 ---
